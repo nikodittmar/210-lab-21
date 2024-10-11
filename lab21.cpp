@@ -3,6 +3,38 @@ using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 
+const int NUM_NAMES = 15;
+const int NUM_COLORS = 15;
+
+class Goat {
+private:
+    int age;
+    string name;
+    string color;
+    string names[15] = {
+        "Billy", "Nanny", "Gruff", "Bucky", "Tilly",
+        "Luna", "Bella", "Shadow", "Snowy", "Clover",
+        "Willow", "Blanca", "Pebbles", "Mocha", "Hazel"
+    };
+    string colors[15] = {
+        "White", "Black", "Brown", "Gray", "Golden",
+        "Spotted", "Cream", "Tan", "Silver", "Beige",
+        "Charcoal", "Chestnut", "Mahogany", "Pale Yellow", "Dark Brown"
+    };
+public:
+    Goat() {
+        age = rand() % 20 + 1;
+        name = names[rand() % 15];
+        color = colors[rand() % 15];
+    }
+
+    Goat(int a, string n, string c) {
+        age = a;
+        name = n;
+        color = c;
+    }
+};
+
 class DoublyLinkedList {
 private:
     struct Node {
