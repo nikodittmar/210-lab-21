@@ -1,3 +1,4 @@
+// COMSC 210 | Lab 21 | Niko Dittmar
 #include <iostream>
 using namespace std;
 
@@ -26,6 +27,9 @@ public:
         color = c;
     }
 
+    // print() prints the goat to cout.
+    // arguments: none
+    // returns: void
     void print() {
         cout << "Goat | Name: "<< name << " Age: " << age << " Color: " << color;
     }
@@ -63,6 +67,9 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
+    // push_back() adds a goat to the back of the list.
+    // arguments: g - the goat to add.
+    // returns: void
     void push_back(Goat *g) {
         Node* newNode = new Node(g);
         if (!tail)  // if there's no tail, the list is empty
@@ -74,6 +81,9 @@ public:
         }
     }
 
+    // push_front() adds a goat to the front of the list.
+    // arguments: g - the goat to add.
+    // returns: void
     void push_front(Goat *g) {
         Node* newNode = new Node(g);
         if (!head)  // if there's no head, the list is empty
@@ -85,6 +95,9 @@ public:
         }
     }
 
+    // insert_after() adds a goat after the specified position in the list.
+    // arguments: g - the goat to add, position - the index to add the item after.
+    // returns: void
     void insert_after(Goat *g, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
@@ -116,6 +129,9 @@ public:
         temp->next = newNode;
     }
 
+    // delete_node() delete a goat from the list. (first occurance)
+    // arguments: g - the goat to delete.
+    // returns: void
     void delete_node(Goat *g) {
         if (!head) return; // Empty list
 
@@ -140,6 +156,9 @@ public:
         delete temp;
     }
 
+    // print() prints the list in forward order.
+    // arguments: none
+    // returns: void
     void print() {
         Node* current = head;
         if (!current) {
@@ -154,6 +173,9 @@ public:
         cout << endl;
     }
 
+    // print_reverse() prints the list in reverse order.
+    // arguments: none
+    // returns: void
     void print_reverse() {
         Node* current = tail;
         if (!current) {
@@ -168,6 +190,7 @@ public:
         cout << endl;
     }
 
+    // Deletes the list.
     ~DoublyLinkedList() {
         while (head) {
             Node* temp = head;
@@ -189,6 +212,7 @@ int main() {
 
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 
+    // Add random goats.
     for (int i = 0; i < size; ++i) {
         list.push_back(new Goat());
     }
